@@ -13,17 +13,44 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      margin: 0;
     }
     h2 {
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <h2>Habla con nuestro agente</h2>
 
-  <elevenlabs-convai agent-id="mYPUNTulYgPQmKuXMUzh"></elevenlabs-convai>
+  <!-- Botón que abre el widget -->
+  <button onclick="openAgent()">Iniciar conversación</button>
+
+  <!-- El widget, oculto por defecto -->
+  <div id="agent-container" style="margin-top: 30px; display: none;">
+    <elevenlabs-convai agent-id="mYPUNTulYgPQmKuXMUzh"></elevenlabs-convai>
+  </div>
+
   <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <script>
+    function openAgent() {
+      document.getElementById("agent-container").style.display = "block";
+    }
+  </script>
 </body>
 </html>
